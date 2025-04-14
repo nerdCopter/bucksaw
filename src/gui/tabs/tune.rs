@@ -51,11 +51,11 @@ impl TuneTab {
             let gyro = fd.gyro_filtered().unwrap_or([&empty_fallback; 3]);
             let sample_rate = fd.sample_rate();
             let roll_step_response =
-                calculate_step_response(&fd.times, setpoints[0], gyro[0], sample_rate);
+                calculate_step_response(&fd.times, setpoints[0], gyro[0], sample_rate, 101);
             let pitch_step_response =
-                calculate_step_response(&fd.times, setpoints[1], gyro[1], sample_rate);
+                calculate_step_response(&fd.times, setpoints[1], gyro[1], sample_rate, 101);
             let yaw_step_response =
-                calculate_step_response(&fd.times, setpoints[2], gyro[2], sample_rate);
+                calculate_step_response(&fd.times, setpoints[2], gyro[2], sample_rate, 101);
             let _ = sender.send(StepResponses {
                 roll_step_response,
                 pitch_step_response,
