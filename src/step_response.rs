@@ -446,7 +446,6 @@ pub fn calculate_step_response(
     }
 
     // Create time vector for the response (starting from 0)
-    let start_time = times.first().cloned().unwrap_or(0.0);
     let time_step = 1.0 / sample_rate;
     let response_times: Vec<f64> = (0..response_length_samples)
         .map(|i| i as f64 * time_step)
